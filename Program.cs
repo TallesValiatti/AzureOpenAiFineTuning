@@ -3,7 +3,7 @@ using Azure.AI.OpenAI;
 using OpenAI.Chat;
 
 const string systemMessage = """
-    "You are a helpful RH assistant that create  Input summarizations.
+    You are a helpful RH assistant that create  Input summarizations.
     """;
 
 var resume = """
@@ -28,3 +28,5 @@ ChatCompletion completion = chatClient.CompleteChat(
 
 Console.WriteLine($"Output: {completion.Content[0].Text}");
 Console.WriteLine($"Total of tokens: {completion.Usage.TotalTokenCount}");
+Console.WriteLine($"Input tokens: {completion.Usage.InputTokenCount}");
+Console.WriteLine($"Output tokens: {completion.Usage.OutputTokenCount}");
